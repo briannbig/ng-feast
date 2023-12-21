@@ -16,48 +16,88 @@
         <h1>Angular Feast</h1>
         <hr class="mt-1" style=" height: 2px; background-color: {{favColor}};">
 
-        <p class="h6 mb-3">Name:</p>
-        <input class="form-control mb-3" type="text" ng-model="username">
 
-        <div ng-controller="squareController">
-            <p class="h6 my-2">Angular expressions are simple: Enter below a number and I will square it for you</p>
-            <input type="number" class="form-control my-2" ng-model="number">
-            <p class="my-2">The square of {{number}} is {{number * number}}</p>
-        </div>
-
-
-        <div ng-controller="colorCardController" class="card small">
-            <div class="card-header" style="background-color: {{favColor}};">
-                <!-- using angular to change css property-->
-                <p class="card-title h6 my-0">Hello {{username}}</p>
+        <div class="row">
+            <div class="col col-md-1">
+                <p class="h6 mb-3">Name:</p>
             </div>
-            <div class="card-body">
-                <p class="mb-2">Your favourite color is <span class="badge px-2" style="background-color:{{favColor}};">
-                        {{favColor | uppercase}}</span>
-                </p>
-
-                <div ng-show="showQuickColors">
-                    <p>Select one below to change</p>
-                    <input type="text" class="form-control small my-2" ng-model="colorFilter"
-                        placeholder="filter colors">
-                    <div class="btn-group btn-group-sm" role="group" aria-label="">
-
-                        <button ng-repeat="color in quickColors | filter : colorFilter" ng-click="updateFavColor(color)"
-                            type="button" class="btn small" style="background-color: {{color}};">{{color}}</button>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-footer">
-                <button ng-click="toggleButtonGroup()" class="btn btn-sm" style="background-color: {{favColor}};">
-                    {{showQuickColors ? "Hide" : "Show"}} colors
-                </button>
+            <div class="col col-md-11">
+                <input class="form-control mb-3" type="text" ng-model="username">
             </div>
         </div>
 
         <p class="my-2 p-2 h3" feast-directive></p>
         <hr class="mt-1" style=" height: 1px; background-color: {{favColor}};">
+
+        <div class="row">
+            <div class="col col-md-6">
+                <div ng-controller="colorCardController" class="card small">
+                    <div class="card-header" style="background-color: {{favColor}};">
+                        <!-- using angular to change css property-->
+                        <p class="card-title h6 my-0">Hello {{username}}</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-2">Your favourite color is <span class="badge px-2"
+                                style="background-color:{{favColor}};">
+                                {{favColor | uppercase}}</span>
+                        </p>
+
+                        <div ng-show="showQuickColors">
+                            <p>Select one below to change</p>
+                            <input type="text" class="form-control small my-2" ng-model="colorFilter"
+                                placeholder="filter colors">
+
+                            <span ng-repeat="color in quickColors | filter : colorFilter"
+                                ng-click="updateFavColor(color)" type="button" class="badge mr-1 lg"
+                                style="background-color: {{color}};">{{color}}</span>
+
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <button ng-click="toggleButtonGroup()" class="btn btn-sm"
+                            style="background-color: {{favColor}};">
+                            {{showQuickColors ? "Hide" : "Show"}} colors
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-md-6" ng-controller="todoController">
+                <p class="h4 my-2">{{username == "" ? "Your": username+"'s"}} todos on the feast </p>
+                <hr class="mt-1" style=" height: 1px; background-color: {{favColor}};">
+                <ol>
+                    <li ng-repeat="(index, todo) in todos">
+                        <div class="row ml-1">
+                            <span class="mr-4 todo-{{todo.done? 'done': ''}}">{{todo.text}} </span>
+                            <input type="checkbox" ng-click="markDone(index)" ng-bind="todo.done">
+                        </div>
+                        <hr style="height: 2px; background-color: {{todo.color}}; " class="my-1 rounded">
+                    </li>
+                </ol>
+
+                <form ng-submit="addTodo()">
+                    <div class="from-group">
+                        <input type="text" class="form-control small my-2" ng-model="todoText"
+                            placeholder="New todo...">
+                    </div>
+                    <p class="h6">Color: <span class="badge"
+                            style="width: 40px; height: 100%; background-color: {{noteColor}};"> </span></p>
+
+                    <span ng-repeat="color in quickColors | filter : colorFilter" ng-click="updateSelectedColor(color)"
+                        type="button" class="badge mr-1 lg" style="background-color: {{color}};">{{color}}</span>
+                    <br>
+
+                    <button style="background-color: {{favColor}}" class="btn my-2">
+                        Add todo</button>
+                </form>
+
+
+            </div>
+        </div>
+
+
+
 
 
     </div>

@@ -5,3 +5,6 @@ body {
 .container{
     background-color: bisque;
 }
+.todo-done{
+    text-decoration: line-through;
+}
