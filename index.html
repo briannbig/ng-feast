@@ -45,19 +45,8 @@
 
 </body>
 
-<script>
-    var app = angular.module('angularFeastApp', []);
-    app.controller('angularFeastController', function ($scope) {
-        $scope.name = "Brian";
-        $scope.number = 3;
-        $scope.favColor = "lightGreen";
-    });
-
-    app.directive("feastDirective", function () {
-        return {
-            template: "Feasting about to go down!"
-        };
-    });
-</script>
+<script src="./src/AppModule.js"></script>
+<script src="./src/Controller.js"></script>
+<script src="./src/Directives.js"></script>
 
 </html>
