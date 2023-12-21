@@ -29,11 +29,20 @@
                 <p class="card-title h6 my-0">Hello {{name}}</p>
             </div>
             <div class="card-body">
-                <p my-2>Your favourite color is <span class="badge" style="background-color:{{favColor}};"> {{favColor}}
+                <p class="mb-2">Your favourite color is <span class="badge" style="background-color:{{favColor}};">
+                        {{favColor}}
                     </span>, to change it enter color below:<span>
                         <input type="text" class="form-control small my-2" ng-model="favColor">
                     </span>
                 </p>
+                <p class="mb-2 h6">Quick colors</p>
+
+                <div class="btn-group btn-group-sm" role="group" aria-label="">
+                    <button ng-repeat="color in quickColors" type="button" class="btn small"
+                        style="background-color: {{color}};">{{color}}</button>
+
+                </div>
+
             </div>
         </div>
 
