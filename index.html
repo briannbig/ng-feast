@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almond POS</title>
+    <title>Angular feast</title>
     <script src="./src/lib/angular.min.js"></script>
     <link rel="stylesheet" href="./static/styles.css">
     <link rel="stylesheet" href="static/bootstrap/bootstrap.min.css">
 </head>
 
 <body>
-    <div class="container vh-100 p-5" ng-app="" ng-init="name='Brian'">
+    <div class="container vh-100 p-5" ng-app="angularFeastApp" ng-controller="angularFeastController">
 
         <p class="h5 mb-3">Name:</p>
         <input class="form-control mb-3" type="text" ng-model="name">
@@ -19,11 +19,19 @@
         <h1>Hello {{name}}</h1>
 
         <p class="h5 my-2">Angular expressions are simple: Enter below a number and I will square it for you</p>
-        <input type="number"  class="form-control my-2" ng-model="number">
+        <input type="number" class="form-control my-2" ng-model="number">
         <p class="my-2">The square of {{number}} is {{number * number}}</p>
 
     </div>
 
 </body>
+
+<script>
+    var app = angular.module('angularFeastApp', []);
+    app.controller('angularFeastController', function ($scope) {
+        $scope.name = "Brian";
+        $scope.number = 3;
+    });
+</script>
 
 </html>
