@@ -1,9 +1,16 @@
 app.controller('colorCardController', function ($scope, $rootScope) {
     $scope.showQuickColors = true;
+    $scope.showNameInput = $rootScope.user.username === '';
+
+    $scope.colorFilter = '';
+
     $scope.toggleButtonGroup = function () {
         $scope.showQuickColors = $scope.showQuickColors ? false : true
     }
-    $scope.colorFilter = '';
+
+    $scope.toggleShowNameInput = function () {
+        $scope.showNameInput = $scope.showNameInput ? false : true
+    }
 
     $scope.updateFavColor = function (color) {
         $rootScope.updateFavColor(color)

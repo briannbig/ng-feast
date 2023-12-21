@@ -31,4 +31,9 @@ app.run(function ($rootScope) {
 
     }
 
+    $rootScope.updateUserName = function () {
+        $rootScope.writeStorage('user.username', $rootScope.user.username);
+        $rootScope.user.username = readStorage('user.username')
+    }
+
 })

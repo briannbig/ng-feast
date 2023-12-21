@@ -16,19 +16,8 @@
         <h1>Angular Feast</h1>
         <hr class="mt-1" style=" height: 2px; background-color: {{favColor}};">
 
-
-        <div class="row">
-            <div class="col col-md-1">
-                <p class="h6 mb-3">Name:</p>
-            </div>
-            <div class="col col-md-11">
-                <input class="form-control mb-3" type="text" ng-model="user.username"
-                    placeholder="What should we call you at the feast?">
-            </div>
-        </div>
-
         <p class="my-2 p-2 h3" feast-directive></p>
-        <hr class="mt-1" style=" height: 1px; background-color: {{favColor}};">
+
 
         <div class="row">
             <div class="col col-md-6">
@@ -53,12 +42,25 @@
                                 style="background-color: {{color}};">{{color}}</span>
 
                         </div>
+                        <div ng-show="showNameInput" class="row mt-4 mb-0">
+                            <div class="col col-md-2 col-sm-12">
+                                <p class="h6 ">Name:</p>
+                            </div>
+                            <div class="col col-md-10 col-sm-12">
+                                <input class="form-control " type="text" ng-model="user.username"
+                                    ng-blur="updateUserName()" placeholder="What name shall we call you at the feast?">
+                            </div>
+                        </div>
                     </div>
 
                     <div class="card-footer">
                         <button ng-click="toggleButtonGroup()" class="btn btn-sm"
                             style="background-color: {{favColor}};">
                             {{showQuickColors ? "Hide" : "Show"}} colors
+                        </button>
+                        <button ng-click="toggleShowNameInput()" class="btn btn-sm"
+                            style="background-color: {{favColor}};">
+                            {{showNameInput ? "Hide name form" : "Edit username"}}
                         </button>
                     </div>
                 </div>
@@ -89,7 +91,8 @@
                             style="width: 100px; height: 10px; background-color: {{noteColor}};"> </span></p>
 
                     <span ng-repeat="color in quickColors | filter : colorFilter" ng-click="updateSelectedColor(color)"
-                        type="button" class="badge mr-1 lg" style="background-color: {{color}};">{{color}}</span>
+                        type="button" class="badge mr-1 lg"
+                        style="width: 60px; height: 15px; background-color: {{color}};"> </span>
                     <br>
 
                     <button style="background-color: {{favColor}}" class="btn my-2">
