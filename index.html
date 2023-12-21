@@ -35,7 +35,8 @@
 
                 <div ng-show="showQuickColors">
                     <p>Select one below to change</p>
-                    <input type="text" class="form-control small my-2" ng-model="colorFilter" placeholder="filter colors">
+                    <input type="text" class="form-control small my-2" ng-model="colorFilter"
+                        placeholder="filter colors">
                     <div class="btn-group btn-group-sm" role="group" aria-label="">
 
                         <button ng-repeat="color in quickColors | filter : colorFilter" ng-click="updateFavColor(color)"
@@ -47,7 +48,7 @@
 
             <div class="card-footer">
                 <button ng-click="toggleButtonGroup()" class="btn btn-sm" style="background-color: {{favColor}};">
-                    Show/hide colors
+                    {{showQuickColors ? "Hide" : "Show"}} colors
                 </button>
             </div>
         </div>
