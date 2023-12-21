@@ -1,9 +1,10 @@
 app.controller('angularFeastController', function ($scope) {
     $scope.name = "Brian";
     $scope.number = 3;
-    $scope.favColor = "lightGreen";
+
     $scope.quickColors = ['aqua', 'lightBlue', 'burlywood', 'royalblue', 'chocolate', 'crimson', 'darkgoldenrod', 'darkolivegreen',
         'coral', 'darkorchid', 'fuchsia', 'bisque', 'lightGreen', 'orange',]
+    $scope.favColor = $scope.quickColors[Math.floor(Math.random() * $scope.quickColors.length)];
     $scope.updateFavColor = function (color) {
         $scope.favColor = color
         $scope.colorFilter = ''
