@@ -22,7 +22,7 @@
                 <p class="h6 mb-3">Name:</p>
             </div>
             <div class="col col-md-11">
-                <input class="form-control mb-3" type="text" ng-model="username">
+                <input class="form-control mb-3" type="text" ng-model="user.username" placeholder="What should we call you at the feast?">
             </div>
         </div>
 
@@ -34,7 +34,7 @@
                 <div ng-controller="colorCardController" class="card small">
                     <div class="card-header" style="background-color: {{favColor}};">
                         <!-- using angular to change css property-->
-                        <p class="card-title h6 my-0">Hello {{username}}</p>
+                        <p class="card-title h6 my-0">Hello {{user.username}}</p>
                     </div>
                     <div class="card-body">
                         <p class="mb-2">Your favourite color is <span class="badge px-2"
@@ -64,13 +64,13 @@
             </div>
 
             <div class="col col-md-6" ng-controller="todoController">
-                <p class="h4 my-2">{{username == "" ? "Your": username+"'s"}} todos on the feast </p>
+                <p class="h4 my-2">Your todos on the feast </p>
                 <hr class="mt-1" style=" height: 1px; background-color: {{favColor}};">
                 <ol>
                     <li ng-repeat="(index, todo) in todos">
                         <div class="row ml-1">
                             <span class="mr-4 todo-{{todo.done? 'done': ''}}">{{todo.text}} </span>
-                            <input type="checkbox" ng-click="markDone(index)" ng-bind="todo.done">
+                            <input type="checkbox" ng-click="markDone(index)" ng-checked="todo.done" ng-bind="todo.done">
                         </div>
                         <hr style="height: 2px; background-color: {{todo.color}}; " class="my-1 rounded">
                     </li>
