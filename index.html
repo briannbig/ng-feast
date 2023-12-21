@@ -35,14 +35,18 @@
                         <input type="text" class="form-control small my-2" ng-model="favColor">
                     </span>
                 </p>
-                <p class="mb-2 h6">Quick colors</p>
 
-                <div class="btn-group btn-group-sm" role="group" aria-label="">
+                <div ng-show="showQuickColors" class="btn-group btn-group-sm" role="group" aria-label="">
                     <button ng-repeat="color in quickColors" ng-click="updateFavColor(color)" type="button"
                         class="btn small" style="background-color: {{color}};">{{color}}</button>
 
                 </div>
+            </div>
 
+            <div class="card-footer">
+                <button ng-click="toggleButtonGroup()" class="btn btn-sm" style="background-color: {{favColor}};">
+                    Show/hide colors
+                </button>
             </div>
         </div>
 

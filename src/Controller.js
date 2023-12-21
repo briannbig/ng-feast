@@ -7,4 +7,8 @@ app.controller('angularFeastController', function ($scope) {
     $scope.updateFavColor = function (color) {
         $scope.favColor = color
     }
+    $scope.showQuickColors = false;
+    $scope.toggleButtonGroup = function () {
+        $scope.showQuickColors = $scope.showQuickColors ? false : true
+    }
 });
