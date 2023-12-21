@@ -13,6 +13,9 @@
 <body>
     <div class="container vh-100 p-5" ng-app="angularFeastApp" ng-controller="angularFeastController">
 
+        <h1>Angular Feast</h1>
+        <hr class="mt-1" style=" height: 2px; background-color: {{favColor}};">
+
         <p class="h6 mb-3">Name:</p>
         <input class="form-control mb-3" type="text" ng-model="name">
 
@@ -25,8 +28,8 @@
                 <p class="card-title h6 my-0">Hello {{name}}</p>
             </div>
             <div class="card-body">
-                <p my-2>Your favourite color is {{favColor}}, to change it enter color below:<span>
-                        <input type="text" class="form-control small" ng-model="favColor">
+                <p my-2>Your favourite color is <span class="badge" style="background-color:{{favColor}};"> {{favColor}} </span>, to change it enter color below:<span>
+                        <input type="text" class="form-control small my-2" ng-model="favColor">
                     </span>
                 </p>
             </div>
