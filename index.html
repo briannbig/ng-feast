@@ -22,7 +22,8 @@
                 <p class="h6 mb-3">Name:</p>
             </div>
             <div class="col col-md-11">
-                <input class="form-control mb-3" type="text" ng-model="user.username" placeholder="What should we call you at the feast?">
+                <input class="form-control mb-3" type="text" ng-model="user.username"
+                    placeholder="What should we call you at the feast?">
             </div>
         </div>
 
@@ -68,11 +69,14 @@
                 <hr class="mt-1" style=" height: 1px; background-color: {{favColor}};">
                 <ol>
                     <li ng-repeat="(index, todo) in todos">
-                        <div class="row ml-1">
-                            <span class="mr-4 todo-{{todo.done? 'done': ''}}">{{todo.text}} </span>
-                            <input type="checkbox" ng-click="markDone(index)" ng-checked="todo.done" ng-bind="todo.done">
+                        <div class="row ml-1 ">
+                            <p><span class="badge badge-pill mr-2 rounded"
+                                    style=" height: 15px; width: 15px;  background-color: {{todo.color}};"> </span></p>
+                            <p class="mr-4 todo-{{todo.done? 'done': ''}}">{{todo.text}} </p> <span>
+                                <input type="checkbox" ng-click="markDone(index)" ng-checked="todo.done"
+                                    ng-bind="todo.done"> </span>
                         </div>
-                        <hr style="height: 2px; background-color: {{todo.color}}; " class="my-1 rounded">
+
                     </li>
                 </ol>
 
@@ -82,7 +86,7 @@
                             placeholder="New todo...">
                     </div>
                     <p class="h6">Color: <span class="badge"
-                            style="width: 40px; height: 100%; background-color: {{noteColor}};"> </span></p>
+                            style="width: 100px; height: 10px; background-color: {{noteColor}};"> </span></p>
 
                     <span ng-repeat="color in quickColors | filter : colorFilter" ng-click="updateSelectedColor(color)"
                         type="button" class="badge mr-1 lg" style="background-color: {{color}};">{{color}}</span>

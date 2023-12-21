@@ -6,7 +6,7 @@ app.controller('colorCardController', function ($scope, $rootScope) {
     $scope.colorFilter = '';
 
     $scope.updateFavColor = function (color) {
-        $rootScope.favColor = color
+        $rootScope.updateFavColor(color)
         $scope.colorFilter = ''
     }
 });
@@ -15,8 +15,8 @@ app.controller('todoController', function ($scope, $rootScope) {
 
     $scope.noteColor = $rootScope.favColor;
     $scope.todos = [
-        { "text": "RSVP for event", "color": $rootScope.quickColors[4], "done": true },
-        { "text": "Prepare for talk", "color": $rootScope.quickColors[5], "done": false }
+        { "text": "RSVP for event", "color": $rootScope.quickColors[7], "done": true },
+        { "text": "Prepare for talk", "color": $rootScope.quickColors[9], "done": false }
     ]
     $scope.todoText = ''
 
@@ -29,8 +29,8 @@ app.controller('todoController', function ($scope, $rootScope) {
         });
         $scope.todoText = ''
         $scope.noteColor = $rootScope.favColor;
-    
-}
+
+    }
 
     $scope.markDone = function (index) {
         $scope.todos[index].done = $scope.todos[index].done ? false : true
