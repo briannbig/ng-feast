@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="container vh-100 p-5" ng-app="angularFeastApp" ng-controller="angularFeastController">
+    <div class="container vh-100 p-4" ng-app="angularFeastApp" ng-controller="angularFeastController">
 
         <h1>Angular Feast</h1>
         <hr class="mt-1" style=" height: 2px; background-color: {{favColor}};">
@@ -38,8 +38,8 @@
                 <p class="mb-2 h6">Quick colors</p>
 
                 <div class="btn-group btn-group-sm" role="group" aria-label="">
-                    <button ng-repeat="color in quickColors" type="button" class="btn small"
-                        style="background-color: {{color}};">{{color}}</button>
+                    <button ng-repeat="color in quickColors" ng-click="updateFavColor(color)" type="button"
+                        class="btn small" style="background-color: {{color}};">{{color}}</button>
 
                 </div>
 
