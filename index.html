@@ -24,16 +24,21 @@
         <p class="my-2">The square of {{number}} is {{number * number}}</p>
 
         <div class="card small">
-            <div class="card-header" style="background-color: {{favColor}};"> <!-- using angular to change css property-->
+            <div class="card-header" style="background-color: {{favColor}};">
+                <!-- using angular to change css property-->
                 <p class="card-title h6 my-0">Hello {{name}}</p>
             </div>
             <div class="card-body">
-                <p my-2>Your favourite color is <span class="badge" style="background-color:{{favColor}};"> {{favColor}} </span>, to change it enter color below:<span>
+                <p my-2>Your favourite color is <span class="badge" style="background-color:{{favColor}};"> {{favColor}}
+                    </span>, to change it enter color below:<span>
                         <input type="text" class="form-control small my-2" ng-model="favColor">
                     </span>
                 </p>
             </div>
         </div>
+
+        <p class="my-2 p-2 h3" feast-directive></p>
+        <hr class="mt-1" style=" height: 1px; background-color: {{favColor}};">
 
 
     </div>
@@ -46,6 +51,12 @@
         $scope.name = "Brian";
         $scope.number = 3;
         $scope.favColor = "lightGreen";
+    });
+
+    app.directive("feastDirective", function () {
+        return {
+            template: "Feasting about to go down!"
+        };
     });
 </script>
 
