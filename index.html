@@ -30,7 +30,7 @@
             </div>
             <div class="card-body">
                 <p class="mb-2">Your favourite color is <span class="badge" style="background-color:{{favColor}};">
-                        {{favColor}}
+                        {{favColor | uppercase}}
                     </span>, to change it enter color below:<span>
                         <input type="text" class="form-control small my-2" ng-model="favColor">
                     </span>
