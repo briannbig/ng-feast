@@ -11,22 +11,25 @@
 </head>
 
 <body>
-    <div class="container vh-100 p-4" ng-app="angularFeastApp" ng-controller="angularFeastController">
+    <div class="container vh-100 p-4" ng-app="angularFeastApp">
 
         <h1>Angular Feast</h1>
         <hr class="mt-1" style=" height: 2px; background-color: {{favColor}};">
 
         <p class="h6 mb-3">Name:</p>
-        <input class="form-control mb-3" type="text" ng-model="name">
+        <input class="form-control mb-3" type="text" ng-model="username">
 
-        <p class="h6 my-2">Angular expressions are simple: Enter below a number and I will square it for you</p>
-        <input type="number" class="form-control my-2" ng-model="number">
-        <p class="my-2">The square of {{number}} is {{number * number}}</p>
+        <div ng-controller="squareController">
+            <p class="h6 my-2">Angular expressions are simple: Enter below a number and I will square it for you</p>
+            <input type="number" class="form-control my-2" ng-model="number">
+            <p class="my-2">The square of {{number}} is {{number * number}}</p>
+        </div>
 
-        <div class="card small">
+
+        <div ng-controller="colorCardController" class="card small">
             <div class="card-header" style="background-color: {{favColor}};">
                 <!-- using angular to change css property-->
-                <p class="card-title h6 my-0">Hello {{name}}</p>
+                <p class="card-title h6 my-0">Hello {{username}}</p>
             </div>
             <div class="card-body">
                 <p class="mb-2">Your favourite color is <span class="badge px-2" style="background-color:{{favColor}};">
